@@ -1,5 +1,19 @@
 // Config file
 #include "config.h"
+#include "Thread.h"
+#include "ThreadController.h"
+
+// Thread Controllers 
+ThreadController System; // to manage all system Threads
+
+// System Functions
+void initSensors();
+void readSensors();
+void printSensors();
+void searchForFlames();
+
+// System Threads
+Thread ThreadSerachForFlames(searchForFlames, 250);
 
 int fsPins[FS_COUNT] = {
     FS0_PIN,
@@ -21,16 +35,15 @@ void setup() {
     // Print the project name and version  
     LOG.print(PROJECT_NAME); LOG.print(" "); LOG.println(PROJECT_VERSION);
 
+    // Add System Threads to the System Trhead Controller
+    System.add(&ThreadSerachForFlames);
+
     // Setup sensors
     initSensors();
 }
 
 void loop() {
-    readSensors();
-
-    printSensorsValues();
-
-    delay(250);
+    System.run();
 }
 
 // Init sensors
@@ -47,10 +60,16 @@ void readSensors() {
     }
 }
 
-void printSensorsValues() {
+void printSensors() {
     for (int fs = 0; fs < FS_COUNT; fs++) {
         LOG.print(fsValues[fs]);
         LOG.print("V\t");
     }
     LOG.print("\n");
+}
+
+
+void searchForFlames() {
+    readSensors();
+    printSensors();
 }
