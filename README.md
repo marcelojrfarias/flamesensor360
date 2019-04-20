@@ -1,2 +1,2 @@
 # flamesensor360
-Sensor de Chama 360ºC
+Sensor de Chama 360º

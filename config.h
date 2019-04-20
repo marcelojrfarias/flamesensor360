@@ -21,8 +21,8 @@
 #define FS5_PIN A1
 #define FS6_PIN A0
 #define FS7_PIN A7
-#define FS_MIN_VOLTAGE 0.20
-#define FS_MAX_VOLTAGE 5.0
+#define FS_MIN_VOLTAGE 0.20 // V
+#define FS_MAX_VOLTAGE 5.0 // V
 
 // LEDs Pinout
 #define LED_COUNT 8
@@ -34,12 +34,12 @@
 #define LED5_PIN 8
 #define LED6_PIN 9
 #define LED7_PIN 2
-#define LED_MIN_INTERVAL 50
-#define LED_MAX_INTERVAL 500
+#define LED_MIN_INTERVAL 50 // ms
+#define LED_MAX_INTERVAL 500 // ms
 
 // LEDs Pinout
 #define BZZ_PIN 10
-#define BZZ_MIN_INTERVAL 50
-#define BZZ_MAX_INTERVAL 500
+#define BZZ_MIN_INTERVAL 50 // ms
+#define BZZ_MAX_INTERVAL 500 // ms
 
 #endif

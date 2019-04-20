@@ -74,9 +74,8 @@ void setup() {
 
 // The main function
 void loop() {
+    // Execute the Main Thread Controller
     System.run();
-    Sensors.run();
-    Leds.run();
 }
 
 // Init LEDs
@@ -123,6 +122,7 @@ void calibrateSensors(int samples) {
 
 // Search for flames and blink the respective leds
 void searchForFlames() {
+    printSensors();
     bool flameFound = false;
     for (int fs = 0; fs < FS_COUNT; fs++) {
         if (flameSensors[fs].voltage < FS_MIN_VOLTAGE) {
